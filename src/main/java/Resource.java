@@ -125,6 +125,10 @@ public class Resource {
       cn.createQuery(sql)
       .addParameter("id", id)
       .executeUpdate();
+      sql = "DELETE FROM reviews WHERE resourceid = :id;";
+      cn.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
     }
   }
 

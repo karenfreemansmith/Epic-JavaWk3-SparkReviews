@@ -56,6 +56,19 @@ public class Technology {
     }
   }
 
+  public static void delete(int id) {
+    try(Connection cn = DB.sql2o.open()) {
+      String sql = "DELETE FROM tecnologies WHERE id = :id;";
+      cn.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
+      // String sql = "DELETE FROM resorces WHERE techid = :id;";
+      // cn.createQuery(sql)
+      // .addParameter("id", id)
+      // .executeUpdate();
+    }
+  }
+
   @Override
   public boolean equals(Object otherTech) {
     if (!(otherTech instanceof Technology)) {
