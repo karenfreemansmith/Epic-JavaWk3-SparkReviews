@@ -84,7 +84,7 @@ public class ReviewTest {
 
   @Test
   public void update_updatesReview() {
-    review.update("It sucks!", "I found everything I was looking for here", 2, "noneofyourbusiness", "nyb@sample.com");
+    review.update("It sucks!", "I found everything I was looking for here", "noneofyourbusiness", "nyb@sample.com");
     assertEquals("I found everything I was looking for here", Review.findById(review.getId()).getReview());
   }
 

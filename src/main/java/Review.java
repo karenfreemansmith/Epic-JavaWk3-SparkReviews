@@ -32,10 +32,7 @@ public class Review {
         .getKey();
     }
 
-    // TODO: get date from database to complete object properties
-    // TODO: update average rating for resource
     Resource.findById(resourceid).setAverage(Review.getAverageByResource(resourceid));
-    // TODO: update review count for resource
     Resource.findById(resourceid).setCount(Review.getCountByResource(resourceid));
   }
 
@@ -44,7 +41,35 @@ public class Review {
   }
 
   public String getDate() {
-    return date;
+    String year = date.substring(0,4);
+    String month = date.substring(5,7);
+    if(month.equals("01")) {
+      month="January";
+    } else if(month.equals("02")) {
+      month="Febuary";
+    } else if(month.equals("03")) {
+      month="March";
+    } else if(month.equals("04")) {
+      month="April";
+    } else if(month.equals("05")) {
+      month="May";
+    } else if(month.equals("06")) {
+      month="June";
+    } else if(month.equals("07")) {
+      month="July";
+    } else if(month.equals("08")) {
+      month="August";
+    } else if(month.equals("09")) {
+      month="September";
+    } else if(month.equals("10")) {
+      month="October";
+    } else if(month.equals("11")) {
+      month="November";
+    } else if(month.equals("12")) {
+      month="December";
+    }
+    String day = date.substring(8,10);
+    return month + ", " + day + " " + year;
   }
 
   public String getTitle() {
