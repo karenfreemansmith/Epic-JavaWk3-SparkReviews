@@ -165,8 +165,8 @@ ALTER TABLE ONLY technologies ALTER COLUMN id SET DEFAULT nextval('technologies_
 --
 
 COPY resources (id, title, url, description, techid, avgrating, reviewcount) FROM stdin;
-20	Code Academy: PHP	https://www.codecademy.com/learn/php	Learn PHP with Code Academy	10	\N	\N
-24	Python Website	https://www.python.org/	The official python website	15	1	1
+14	Official Spark Website	http://sparkjava.com/	The official Spark website for everything there is to know about Spark	13	1	1
+20	Code Academy: PHP	https://www.codecademy.com/learn/php	Learn PHP with Code Academy	10	1	1
 1	Oracle Documentation	https://docs.oracle.com/javase/7/docs/api/	Everything you ever wanted to know about Java	9	3	9
 9	Java Tutorials by Oracle	https://docs.oracle.com/javase/tutorial/	Java tutorials from The Source	9	2	1
 11	TutorialPoint Java Tutorial	http://www.tutorialspoint.com/java/	More tutorials, easier to read, easier to understand, better tutorials!!!	9	4	4
@@ -177,7 +177,6 @@ COPY resources (id, title, url, description, techid, avgrating, reviewcount) FRO
 17	Angular JS by Google	https://angularjs.org/	Learn Angular in your web browser for free!	20	\N	\N
 18	W3 Schools Angular Tutorial	http://www.w3schools.com/angular/angular_intro.asp	W3 Schools Tutorial for Angular JS	20	\N	\N
 19	Ember Documentation	http://emberjs.com/	Official documentation for Ember	21	\N	\N
-14	Official Spark Website	http://sparkjava.com/	The official Spark website for everything there is to know about Spark	13	\N	\N
 16	Why Spark is so Amazing	https://zeroturnaround.com/rebellabs/sparkjava-is-an-amazing-java-web-framework-do-you-really-need-it/	A blog post by Oleg Šelajev who is an engineer, author, speaker, lecturer and advocate at ZeroTurnaround	13	\N	\N
 15	Spark Documentation	http://sparkjava.com/documentation.html	Official documentation for Spark	13	\N	\N
 4	W3 Schools	http://www.w3schools.com/tags/	The world's largest web developer site	17	\N	\N
@@ -192,6 +191,9 @@ COPY resources (id, title, url, description, techid, avgrating, reviewcount) FRO
 3	MDN (Mozilla Developer Network)	https://developer.mozilla.org/en-US/docs/Web/HTML	The ultimate source of information on HTML	17	\N	\N
 28	Ruby on Rails	http://rubyonrails.org/	Imagine what you could build if you learned Ruby on Rails…	11	0	0
 23	Hazards of Python	http://timesofindia.indiatimes.com/city/ahmedabad/Python-dies-after-swallowing-nilgai/articleshow/54456206.cms	You gotta see it to believe it!	15	5	1
+29	DOM Practice	http://www.w3schools.com/js/js_htmldom.asp	Will help with javascript usage	23	0	0
+24	Python Website	https://www.python.org/	The official python website	15	1	2
+30	Pro AngularJS	https://www.amazon.com/Pro-AngularJS-Experts-Voice-Development/dp/1430264489/ref=sr_1_1?ie=UTF8&qid=1474586507&sr=8-1&keywords=angular+js	AngularJS is the leading framework for building dynamic JavaScript applications that take advantage of the capabilities of modern browsers and devices. AngularJS, which is maintained by Google, brings the power of the Model-View-Controller (MVC) pattern to the client, providing the foundation for complex and rich web apps. It allows you to build applications that are smaller, faster, and with a lighter resource footprint than ever before. Best-selling author Adam Freeman explains how to get the most from AngularJS.	20	3	1
 \.
 
 
@@ -199,7 +201,7 @@ COPY resources (id, title, url, description, techid, avgrating, reviewcount) FRO
 -- Name: resources_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('resources_id_seq', 28, true);
+SELECT pg_catalog.setval('resources_id_seq', 33, true);
 
 
 --
@@ -230,6 +232,10 @@ COPY reviews (id, title, review, rating, reviewer, email, resourceid, date) FROM
 24	OK	Not too bad, for tutorials by an official source - but tutorial point is better!	2	Sue	sue@turotialpoint.com	9	2016-09-22 15:00:43.184855
 25	Really Good	These are my favorite tutorials online. So good...	5	Sue	sue@turotialpoint.com	11	2016-09-22 15:02:18.622809
 26	Hard to beat FREE	oh, they are all free!	4	knowitall	kia@sample.com	10	2016-09-22 15:03:14.364211
+27	waste of time	this website really adds no value to my knowledge base. i could have spent my time better doing ANYTHING else than reading this trash!	1	jeremy :)	fryd22@gmail.com	24	2016-09-22 15:17:33.857236
+28	Hmm	A thinker	3	Me	me@me.com	30	2016-09-22 16:22:40.645708
+29	Spark Review	I hate spark	1	Tony	tf	14	2016-09-22 16:32:44.925696
+30	Skeptical	They want you to sign up and give them too much information. No credit card required as far as I can tell, but I'm not giving my email to anyone just to look at their lessons.	1	Sue	sue@turotialpoint.com	20	2016-09-22 17:57:38.987329
 \.
 
 
@@ -237,7 +243,7 @@ COPY reviews (id, title, review, rating, reviewer, email, resourceid, date) FROM
 -- Name: reviews_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('reviews_id_seq', 26, true);
+SELECT pg_catalog.setval('reviews_id_seq', 31, true);
 
 
 --
@@ -258,6 +264,7 @@ COPY technologies (id, name) FROM stdin;
 20	Angular.js
 21	Ember.js
 22	C++
+23	Javascript
 \.
 
 
@@ -265,7 +272,7 @@ COPY technologies (id, name) FROM stdin;
 -- Name: technologies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('technologies_id_seq', 22, true);
+SELECT pg_catalog.setval('technologies_id_seq', 24, true);
 
 
 --
